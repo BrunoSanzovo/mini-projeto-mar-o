@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -34,8 +35,15 @@
     background: linear-gradient(144deg, rgb(0, 1, 73) 0%, rgb(13, 0, 131) 78%, rgb(113, 115, 255) 100%);
     height: 100vh;
     width: 100vw;
-}
 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/floresta.avif'); /* Substitua 'background-image.jpg' pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.5);} /* Ajuste o valor de 'rgba' para controlar a opacidade
 .content {
     width: 90vw;
     height: 85vh;

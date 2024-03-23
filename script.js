@@ -3,6 +3,7 @@ const secondsDisplay = document.getElementById('seconds');
 const completedExercisesList = document.getElementById('completed-exercises-list');
 const startButton = document.getElementById('start');
 const pauseButton = document.getElementById('pause');
+const resetButton = document.getElementById('reset');
 
 let timer;
 let isRunning = false;
@@ -119,3 +120,17 @@ function addToCompletedExercises(exercise) {
 
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
+
+resetButton.addEventListener('click', resetTimer);
+
+function resetTimer() {
+    clearInterval(timer); // Limpa o temporizador
+    clearInterval(stretchInterval); // Limpa o intervalo de alongamento
+    remainingTime = 25 * 60; // Reinicia o tempo restante para o valor inicial
+    isRunning = false; // Define o estado de execução como falso
+    completedExercises = []; // Limpa a lista de exercícios concluídos
+    localStorage.removeItem('remainingTime'); // Remove os dados do localStorage
+    localStorage.removeItem('completedExercises'); // Remove os dados do localStorage
+    updateTimerDisplay(); // Atualiza a exibição do temporizador
+    updateCompletedExercisesList(); // Atualiza a lista de exercícios concluídos
+}
