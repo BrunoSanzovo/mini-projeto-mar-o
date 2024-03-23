@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const formLogin = document.querySelector('.form-login');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
 
     formLogin.addEventListener('submit', function (event) {
         event.preventDefault(); // Evita o envio padrão do formulário
@@ -36,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Dispara o evento de submit no formulário de login
         formLogin.dispatchEvent(new Event('submit'));
+    });
+
+    // Adiciona um event listener para o clique no link "Esqueci a senha"
+    forgotPasswordLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        alert('Você esqueceu sua senha! Entre em contato com o suporte para recuperá-la.');
+        // Aqui você pode adicionar lógica adicional, como abrir um modal de recuperação de senha.
     });
 
     // Mensagem de manutenção para os botões Google e Facebook

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const formCadastro = document.querySelector('.form-cadastro');
+    
 
     formCadastro.addEventListener('submit', function (event) {
         event.preventDefault(); // Evita o envio padrão do formulário
@@ -15,4 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Redirecione para a página de login
         window.location.href = 'principal.html';
     });
+
+
 });
