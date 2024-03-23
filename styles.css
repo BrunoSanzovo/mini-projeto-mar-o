@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/floresta.avif'); /* Substitua 'background-image.jpg' pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.5); /* Ajuste o valor de 'rgba' para controlar a opacidade */
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Ajuste o valor de 'rgba' para controlar a opacidade */
+}
+
+/* Adicione estilos adicionais conforme necessário */
+
+.task-img {
+    width: 16px;
+    height: left;
+    margin-right: 5px;
+    float: left;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 480px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); 
+}
+
+h1 {
+    text-align: center;
+}
+
+.timer {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
