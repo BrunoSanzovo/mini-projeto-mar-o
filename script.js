@@ -4,6 +4,7 @@ const completedExercisesList = document.getElementById('completed-exercises-list
 const startButton = document.getElementById('start');
 const pauseButton = document.getElementById('pause');
 const resetButton = document.getElementById('reset');
+const histButton = document.getElementById('history');
 
 let timer;
 let isRunning = false;
@@ -12,15 +13,12 @@ let stretchInterval;
 let completedExercises = [];
 
 const stretchExercises = [
-    "Faça 100x flexões",
-    "Faça 100x abdominais",
-    "100x agachamentos",
     "Levante-se e estique os braços acima da cabeça por 10 segundos.",
     "Incline o tronco para os lados, mantendo o alongamento por 15 segundos em cada lado.",
     "Gire os ombros para trás em movimentos circulares por 20 segundos.",
     "Faça uma rotação no pescoço, movendo-o suavemente para a esquerda e para a direita por 10 segundos.",
     "Estique as pernas e toque os dedos dos pés, mantendo a posição por 15 segundos.",
-    "Sente-se e estique os braços para frente, mantendo a posição por 20 segundos."
+    
 ];
 
 // Recupera os dados do localStorage, se houver
@@ -57,7 +55,12 @@ function startTimer() {
         showExercise();
     }
 }
-
+function startTimer2() {
+    if (!isRunning) {
+        isRunning = false;
+        showExercise2();
+    }
+}
 function pauseTimer() {
     clearInterval(timer);
     clearInterval(stretchInterval);
@@ -84,9 +87,11 @@ function showExercise() {
         const currentExercise = stretchExercises[index];
         addToCompletedExercises(currentExercise);
         index = (index + 1) % stretchExercises.length;
-    }, 5 * 60 * 1000); // 5 minutos
+    }, 5 * 1 * 1000); // 5 minutos
 }
-
+function showExercise2(exercise) {
+    alert("1ªLevante-se e estique os braços acima da cabeça por 10 segundos\n2ªIncline o tronco para os lados, mantendo o alongamento por 15 segundos em cada lado.\n3ªGire os ombros para trás em movimentos circulares por 20 segundos.\n4ªFaça uma rotação no pescoço, movendo-o suavemente para a esquerda e para a direita por 10 segundos.\n5ªEstique as pernas e toque os dedos dos pés, mantendo a posição por 15 segundos.");
+}
 function completeExercise() {
     const currentExercise = stretchExercises.find(exercise => exercise === exerciseDescription.textContent.replace('Exercício de Alongamento: ', ''));
     if (currentExercise && !completedExercises.includes(currentExercise)) {
@@ -122,6 +127,7 @@ startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 
 resetButton.addEventListener('click', resetTimer);
+histButton.addEventListener('click', startTimer2);
 
 function resetTimer() {
     clearInterval(timer); // Limpa o temporizador
