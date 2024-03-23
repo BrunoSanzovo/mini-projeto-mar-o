@@ -87,7 +87,7 @@ function showExercise() {
         const currentExercise = stretchExercises[index];
         addToCompletedExercises(currentExercise);
         index = (index + 1) % stretchExercises.length;
-    }, 5 * 1 * 1000); // 5 minutos
+    }, 5 * 60 * 1000); // 5 minutos
 }
 function showExercise2(exercise) {
     alert("1ªLevante-se e estique os braços acima da cabeça por 10 segundos\n2ªIncline o tronco para os lados, mantendo o alongamento por 15 segundos em cada lado.\n3ªGire os ombros para trás em movimentos circulares por 20 segundos.\n4ªFaça uma rotação no pescoço, movendo-o suavemente para a esquerda e para a direita por 10 segundos.\n5ªEstique as pernas e toque os dedos dos pés, mantendo a posição por 15 segundos.");

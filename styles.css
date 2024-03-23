@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/floresta.avif'); /* Substitua 'background-image.jpg' pelo caminho da sua imagem de fundo */
+    background-image: url('assets/pomodoro.png'); /* Substitua 'background-image.jpg' pelo caminho da sua imagem de fundo */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
