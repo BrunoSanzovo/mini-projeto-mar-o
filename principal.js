@@ -37,4 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Dispara o evento de submit no formulário de login
         formLogin.dispatchEvent(new Event('submit'));
     });
+
+    // Mensagem de manutenção para os botões Google e Facebook
+    const googleButton = document.querySelector('.google-button');
+    const facebookButton = document.querySelector('.facebook-button');
+
+    googleButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        alert('Entrar pela Google está em manutenção. Desculpe pelo transtorno. Obrigado pela compreensão.');
+    });
+
+    facebookButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        alert('Entrar pelo Facebook está em manutenção. Desculpe pelo transtorno. Obrigado pela compreensão.');
+    });
 });
