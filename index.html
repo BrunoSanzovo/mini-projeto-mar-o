@@ -11,35 +11,36 @@
         <h1>Temporizador Pomodoro</h1>
         <button class="button"><a href="principal.html"><img src="assets/voltar.png" alt="Menu Principal" width="50" height="50"></a></button>
         <div class="timer">
-            <span id="minutes">25</span>:<span id="seconds">00</span>
+            <span class="timer" id="minutes">25</span>:<span class="timer" id="seconds">00</span>
         </div>
-        <button id="start">Iniciar</button>
-        <button id="pause">Pausar</button>
-        <button id="reset">Resetar</button>
-        <button onclick="mostrarExercicios()">Ocultar/Mostrar Exercícios</button>
+        <div>
+          <button id="start">Iniciar</button>
+          <button id="pause">Pausar</button>
+          <button id="reset">Resetar</button>
+          <button id ='showExc' onclick="startTimer(1 * 10)">Iniciar 5 min de exercício</button>
+        </div>
 <div class="exercicios" id="exercicios">
-    <p class="exercicio" onclick="destacarExercicio(this)">- Levante-se e estique os braços acima da cabeça por 10 segundos.</p>
-    <p class="exercicio" onclick="destacarExercicio(this)">- Incline o tronco para os lados, mantendo o alongamento por 15 segundos em cada lado.</p>
-    <p class="exercicio" onclick="destacarExercicio(this)">- Gire os ombros para trás em movimentos circulares por 20 segundos.</p>
-    <p class="exercicio" onclick="destacarExercicio(this)">- Faça uma rotação no pescoço, movendo-o suavemente para a esquerda e para a direita por 10 segundos.</p>
-    <p class="exercicio" onclick="destacarExercicio(this)">- Estique as pernas e toque os dedos dos pés, mantendo a posição por 15 segundos.</p>
+  <h2 class="exercicio" id='nameExc'></h2>
+  <h3 class="exercicio" id='dificultExc'></h3>
+  <p class="exercicio" id='descriptExc'></p>
 </div>
+
 
    
 <script>
-    function destacarExercicio(elemento) {
-      elemento.classList.toggle("destacado");
-    }
+    // function destacarExercicio(elemento) {
+    //   elemento.classList.toggle("destacado");
+    // }
   </script>
 <script>
-  function mostrarExercicios() {
-    var exercicios = document.getElementById("exercicios");
-    if (exercicios.style.display === "none") {
-      exercicios.style.display = "block";
-    } else {
-      exercicios.style.display = "none";
-    }
-  }
+  // function mostrarExercicios() {
+  //   var exercicios = document.getElementById("exercicios");
+  //   if (exercicios.style.display === "none") {
+  //     exercicios.style.display = "block";
+  //   } else {
+  //     exercicios.style.display = "none";
+  //   }
+  // }
 </script>
         
         <div class="completed-exercises">
