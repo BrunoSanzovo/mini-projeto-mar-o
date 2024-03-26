@@ -1,6 +1,6 @@
 let timer;
 let isRunning = false;
-let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 10; // Inicialmente definido como 25 minutos
+let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 10; 
 let stretchInterval;
 let completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
 
@@ -35,7 +35,6 @@ getExercises()
 
 let buttonExercise = document.getElementById('showExc');
 
-// Pasamos una función anónima que llamará a las funciones timerExercice y displayExercises
 buttonExercise.addEventListener('click', function() {
     timerExercice();
     displayExercises();
@@ -83,6 +82,14 @@ function displayExercises(){
     currentExercise++;
 }
 
+function clearExercices() {
+    let nameExercise = document.getElementById('nameExc');
+    let dificultExercise = document.getElementById('dificultExc');
+    let descriptExercise = document.getElementById('descriptExc');
+    nameExercise.style.display = 'none';
+    dificultExercise.style.display = 'none';
+    descriptExercise.style.display = 'none';
+}
 
 
 function updateTimerDisplay() {
@@ -93,13 +100,15 @@ function updateTimerDisplay() {
     const seconds = remainingTime % 60;
     minutesDisplay.textContent = minutes < 10 ? `0${minutes}` : minutes;
     secondsDisplay.textContent = seconds < 10 ? `0${seconds}` : seconds;
-    minutesDisplay.style.fontSize = '80px'; 
-    secondsDisplay.style.fontSize = '80px'; 
-    colonDisplay.style.fontSize = '80px';
+    minutesDisplay.style.fontSize = '100px'; 
+    secondsDisplay.style.fontSize = '100px'; 
+    colonDisplay.style.fontSize = '100px';
     if (remainingTime === 0) {
+        clearExercices()
         AlertSound()
     }
 }
+
 
 
 function AlertSound() {
@@ -107,25 +116,6 @@ function AlertSound() {
     audio.play()
 }
 
-
-
-
-function addToCompletedExercises(exercise) {
-    const completedExercisesList = document.getElementById('completed-exercises-list');
-    const li = document.createElement('li');
-    li.textContent = exercise;
-    const img = document.createElement('img');
-    img.src = 'assets/tarefaicon01.jpeg';
-    img.alt = 'checkmark';
-    img.className = 'task-img';
-    li.appendChild(img);
-    completedExercisesList.appendChild(li);
-
-    // Adiciona classe automaticamente para destacar exercícios concluídos após 20 segundos
-    setTimeout(() => {
-        li.classList.add('completed');
-    }, 4 * 60 * 1000); // 4 minutos
-}
 
 function startTimer() {
     if (!isRunning) {
@@ -144,12 +134,12 @@ function startTimer() {
     }
 }
 
+
 function pauseTimer() {
     clearInterval(timer);
     clearInterval(stretchInterval);
     isRunning = false;
 
-    // Salva os dados no localStorage ao pausar o temporizador
     localStorage.setItem('remainingTime', remainingTime);
     localStorage.setItem('completedExercises', JSON.stringify(completedExercises));
 }
@@ -166,21 +156,20 @@ function showExercise() {
 }
 
 function resetTimer() {
-    clearInterval(timer); // Limpa o temporizador
-    clearInterval(stretchInterval); // Limpa o intervalo de alongamento
-    remainingTime = 25 * 60; // Reinicia o tempo restante para o valor inicial
-    isRunning = false; // Define o estado de execução como falso
-    completedExercises = []; // Limpa a lista de exercícios concluídos
-    localStorage.removeItem('remainingTime'); // Remove os dados do localStorage
-    localStorage.removeItem('completedExercises'); // Remove os dados do localStorage
-    updateTimerDisplay(); // Atualiza a exibição do temporizador
-    document.getElementById('completed-exercises-list').innerHTML = ''; // Limpa a lista de exercícios completados
+    clearInterval(timer); 
+    clearInterval(stretchInterval); 
+    remainingTime = 25 * 60;
+    isRunning = false; 
+    completedExercises = []; 
+    localStorage.removeItem('remainingTime'); 
+    localStorage.removeItem('completedExercises'); 
+    updateTimerDisplay(); 
+    document.getElementById('completed-exercises-list').innerHTML = ''; 
 }
 
 document.getElementById('pause').addEventListener('click', pauseTimer);
 document.getElementById('reset').addEventListener('click', resetTimer);
 
-// Atualiza a exibição do temporizador e dos exercícios completados
 updateTimerDisplay();
 completedExercises.forEach(exercise => {
     addToCompletedExercises(exercise);
