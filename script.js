@@ -1,6 +1,6 @@
 let timer;
 let isRunning = false;
-let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 30; // Inicialmente definido como 25 minutos
+let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 10; // Inicialmente definido como 25 minutos
 let stretchInterval;
 let completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
 
@@ -42,7 +42,7 @@ buttonExercise.addEventListener('click', function() {
 });
 
 function timerExercice(){
-    remainingTime = 1 * 15;
+    remainingTime = 1 * 5;
     startTimer(remainingTime);
 }
 
@@ -54,7 +54,7 @@ let buttonIniciar = document.getElementById('start')
 buttonIniciar.addEventListener('click', timerFocus)
 
 function timerFocus(){
-    remainingTime = 1 * 20
+    remainingTime = 1 * 10
     startTimer(remainingTime)
 }
 
@@ -88,10 +88,14 @@ function displayExercises(){
 function updateTimerDisplay() {
     const minutesDisplay = document.getElementById('minutes');
     const secondsDisplay = document.getElementById('seconds');
+    const colonDisplay = document.getElementById('colon');
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
     minutesDisplay.textContent = minutes < 10 ? `0${minutes}` : minutes;
     secondsDisplay.textContent = seconds < 10 ? `0${seconds}` : seconds;
+    minutesDisplay.style.fontSize = '80px'; 
+    secondsDisplay.style.fontSize = '80px'; 
+    colonDisplay.style.fontSize = '80px';
     if (remainingTime === 0) {
         AlertSound()
     }
@@ -131,6 +135,7 @@ function startTimer() {
                 updateTimerDisplay();
             } else {
                 clearInterval(timer);
+                isRunning = false;
                 // completeExerciseButton.style.display = 'block';
             }
         }, 1000);
