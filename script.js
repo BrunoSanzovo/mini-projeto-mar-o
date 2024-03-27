@@ -1,9 +1,9 @@
 let timer;
 let isRunning = false;
 let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 10; 
-let stretchInterval;
-let completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
+// let remainingTime = 1 * 10; 
 
+let stretchInterval;
 
 // ------------------------- API ------------------
 
@@ -43,6 +43,7 @@ buttonExercise.addEventListener('click', function() {
 function timerExercice(){
     remainingTime = 1 * 5;
     startTimer(remainingTime);
+    setTimeout(clearExercices, remainingTime * 1000)
 }
 
 
@@ -82,6 +83,7 @@ function displayExercises(){
     currentExercise++;
 }
 
+
 function clearExercices() {
     let nameExercise = document.getElementById('nameExc');
     let dificultExercise = document.getElementById('dificultExc');
@@ -104,7 +106,6 @@ function updateTimerDisplay() {
     secondsDisplay.style.fontSize = '100px'; 
     colonDisplay.style.fontSize = '100px';
     if (remainingTime === 0) {
-        clearExercices()
         AlertSound()
     }
 }
@@ -123,17 +124,17 @@ function startTimer() {
             remainingTime--;
             if (remainingTime >= 0) {
                 updateTimerDisplay();
-            } else {
+            }
+            else {
                 clearInterval(timer);
                 isRunning = false;
                 // completeExerciseButton.style.display = 'block';
             }
         }, 1000);
         isRunning = true;
-        showExercise();
+        // showExercise();
     }
 }
-
 
 function pauseTimer() {
     clearInterval(timer);
@@ -145,15 +146,6 @@ function pauseTimer() {
 }
 
 
-
-function showExercise() {
-    let index = 0;
-    stretchInterval = setInterval(() => {
-        const currentExercise = stretchExercises[index];
-        addToCompletedExercises(currentExercise);
-        index = (index + 1) % stretchExercises.length;
-    }, 5 * 60 * 1000); // 5 minutos
-}
 
 function resetTimer() {
     clearInterval(timer); 
@@ -171,6 +163,3 @@ document.getElementById('pause').addEventListener('click', pauseTimer);
 document.getElementById('reset').addEventListener('click', resetTimer);
 
 updateTimerDisplay();
-completedExercises.forEach(exercise => {
-    addToCompletedExercises(exercise);
-});
