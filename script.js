@@ -150,7 +150,7 @@ function pauseTimer() {
 function resetTimer() {
     clearInterval(timer); 
     clearInterval(stretchInterval); 
-    remainingTime = 25 * 60;
+    remainingTime = 0 * 60;
     isRunning = false; 
     completedExercises = []; 
     localStorage.removeItem('remainingTime'); 
