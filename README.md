@@ -1,7 +1,3 @@
-# -M1S09-Roteiro-do-Mini-Projeto
-
-fazer o uso do GitFlow, que será explicado na primeira aula. Na primeira aula posso separar uns minutos do fim para que possam se alinhar sobre as responsabilidades de cada um, nesse momento a boa comunicação é essencial para o sucesso da aplicação.
-
 # Pomodoro Project✨
 
 Este é um projeto de Pomodoro Timer, onde os usuários podem se beneficiar de atividades físicas durante seus períodos de pausa, visando combater o sedentarismo e promover o bem-estar mental e físico.
