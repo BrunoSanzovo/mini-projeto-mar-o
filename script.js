@@ -5,7 +5,7 @@ let remainingTime = parseInt(localStorage.getItem('remainingTime')) || 1 * 10;
 
 let stretchInterval;
 
-// ------------------------- API ------------------
+// ------------------------- API -----------------------
 
 
 let stretchExercises = [] // 10 itens
